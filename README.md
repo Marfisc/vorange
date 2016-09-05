@@ -6,7 +6,7 @@ for GUI and Terminal. It is based on
 
 ## Screens
 
-
+![Screen](screen.png)
 
 ## Airline Theme
 
