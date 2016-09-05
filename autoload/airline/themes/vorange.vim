@@ -1,14 +1,6 @@
 " vim-airline companion theme of vorange
 " this theme was shamelessly created by modifying
-" the vorange airline theme.
-
-let s:gray    = [245, '#8a8a8a']
-let s:golden  = [143, '#afaf5f']
-let s:pink    = [131, '#af5f5f']
-let s:blue    = [ 67, '#5f87af']
-let s:orange  = [166, '#d75f00']
-let s:outerfg = [ 16, '#000000']
-let s:innerbg = [234, '#1c1c1c']
+" the srcery airline theme.
 
 " Palette
 
@@ -41,7 +33,7 @@ let s:R1 = [s:bg2[0], s:special[0], s:bg2[1], s:special[1]]
 let s:R3 = [s:special[0], s:bg2[0], s:special[1], s:bg2[1]]
 
 " Inactive pane
-let s:IA = [s:muted[0], s:bg[1], s:muted[1], s:bg[1]]
+let s:IA = [s:muted[0], s:bg[0], s:muted[1], s:bg[1]]
 
 let g:airline#themes#vorange#palette = {}
 let g:airline#themes#vorange#palette.accents = {
