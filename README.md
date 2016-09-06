@@ -4,7 +4,13 @@ A minimalistic dark [Vim](https://github.com/roosta/vim-srcery) color scheme
 for GUI and Terminal. It is based on
 [Srcery](https://github.com/roosta/vim-srcery).
 
-[My personal Homepage](http://marcelfischer.eu/)
+[My personal homepage](http://marcelfischer.eu/)
+
+## Screens
+
+![Screen2](screen2.png)
+
+![Screen](screen.png)
 
 ## Configuration
 
@@ -31,12 +37,6 @@ let g:vorange_undercurl=0
 ```
 
 Currently color inversion cannot be  disabled. Because of the lack of fallback this would make the cursor and visual mode invisible.
-
-## Screens
-
-![Screen](screen.png)
-
-![Screen2](screen2.png)
 
 ## Airline Theme
 
