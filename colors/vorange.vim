@@ -1,4 +1,5 @@
 "vorange
+set background=dark
 
 hi clear
 
