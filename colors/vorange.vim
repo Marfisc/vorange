@@ -339,3 +339,11 @@ hi! link cSpecial EscSequence
 
 "D
 hi! link dEscSequence EscSequence
+
+"Ruby
+hi! link rubyModule Statement
+hi! link rubyClass Statement
+hi! link rubyDefine Statement
+hi! link rubyBlockParameter Normal
+hi! link rubyInstanceVariable Normal
+call s:HL('rubyFunction', s:key2, s:bg)
