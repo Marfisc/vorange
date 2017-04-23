@@ -20,6 +20,14 @@ Put this in your `.vimrc` to load the Vorange color scheme:
 colorscheme vorange
 ```
 
+To make the visual mode cursor work as intended put this in your `.vimrc`.
+The cursor should stop blinking and the selection should look like a 'long' cursor.
+
+```vim
+set guicursor+=v:vCursor
+```
+
+
 This color scheme can be configured by setting global variables before loading.
 
 ```vim
