@@ -42,7 +42,10 @@ let g:airline#themes#vorange#palette.accents = {
 let g:airline#themes#vorange#palette.inactive = {
     \ 'airline_a': s:IA,
     \ 'airline_b': s:IA,
-    \ 'airline_c': s:IA}
+    \ 'airline_c': s:IA,
+    \ 'airline_x': s:IA,
+    \ 'airline_y': s:IA,
+    \ 'airline_z': s:IA}
 
 let g:airline#themes#vorange#palette.normal = airline#themes#generate_color_map(s:N1, s:middle, s:N3)
 let g:airline#themes#vorange#palette.normal.airline_warning = [s:key2[0], s:bg2[0], s:key2[1], s:bg2[1], 'bold']
