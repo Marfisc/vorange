@@ -155,8 +155,8 @@ call s:HL('IncSearch', s:bg, s:key2)
 
 call s:HL('Underlined', s:special, s:none, s:underline)
 
-call s:HL('StatusLine',   s:fg, s:bg2)
-call s:HL('StatusLineNC', s:bg2, s:bg, s:underline)
+call s:HL('StatusLine',   s:bg2, s:muted)
+call s:HL('StatusLineNC', s:muted, s:bg2, s:underline)
 
 " The column separating vertically split windows
 call s:HL('VertSplit', s:fg, s:bg)
