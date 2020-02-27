@@ -153,6 +153,11 @@ call s:HL('Visual', s:none, s:bg, s:inverse)
 call s:HL('Search',    s:bg, s:key2)
 call s:HL('IncSearch', s:bg, s:key2)
 
+highlight! link QuickFixLine NONE
+call s:HL('QuickFixLine', s:none, s:bg2)
+call s:HL('qfFileName', s:key1, s:none)
+call s:HL('qfLineNr', s:muted, s:none)
+
 call s:HL('Underlined', s:special, s:none, s:underline)
 
 call s:HL('StatusLine',   s:bg2, s:muted)
