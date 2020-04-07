@@ -19,9 +19,9 @@ let s:bg       = ["#1C1B19", 234]
 let s:bg2      = ["#2D2C29", 235]
 let s:fg       = ["#FCE8C3", 223]
 let s:muted    = ["#918175", 240] "131
-let s:key1     = ["#5f5faf", 61]
+let s:key1     = ["#5573A3", 61]
 let s:key2     = ["#c3a000", 3]
-let s:string   = ["#89e234", 10]
+let s:string   = ["#98BC37", 10]
 let s:special  = ["#729fcf", 12]
 let s:error    = ["#FF0000", 9]
 
