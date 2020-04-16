@@ -158,7 +158,8 @@ call s:HL('QuickFixLine', s:none, s:bg2)
 call s:HL('qfFileName', s:key1, s:none)
 call s:HL('qfLineNr', s:muted, s:none)
 
-call s:HL('Underlined', s:special, s:none, s:underline)
+"call s:HL('Underlined', s:key2, s:none, s:underline)
+call s:HL('Underlined', s:key2, s:none)
 
 call s:HL('StatusLine',   s:bg2, s:muted)
 call s:HL('StatusLineNC', s:muted, s:bg2, s:underline)
@@ -202,16 +203,16 @@ hi! link lCursor Cursor
 
 """" Syntax
 "Dont highlight to much
-call s:HL('Special', s:fg)
+call s:HL('Special', s:key1)
 
 call s:HL('Comment', s:muted, s:none, s:italic)
 "TODO
 call s:HL('Todo', s:fg, s:bg, s:bold)
-call s:HL('Error', s:key1, s:bg, s:bold . s:inverse)
+call s:HL('Error', s:error, s:bg, s:bold . s:inverse)
 
 " String constant: "this is a string"
 call s:HL('String',  s:string)
-call s:HL('EscSequence', s:fg, s:none, s:bold)
+call s:HL('EscSequence', s:key2, s:none, s:bold)
 
 call s:HL('Statement',  s:key1)
 " if, then, else, endif, swicth, etc.
@@ -230,6 +231,7 @@ hi! link Keyword Statement
 
 call s:HL('Identifier',  s:special)
 call s:HL('Function',  s:special)
+call s:HL('Title', s:special)
 
 " Generic preprocessor
 call s:HL('PreProc', s:special)
@@ -299,14 +301,12 @@ call s:HL('DiffChange', s:special, s:bg, s:inverse)
 call s:HL('DiffText',   s:key2, s:bg, s:inverse)
 
 " HTML
-call s:HL('htmlLink', s:fg, s:none, s:underline)
-call s:HL('htmlTitle', s:fg, s:none, s:bold)
-
 call s:HL('htmlTag', s:key1, s:none)
+call s:HL('htmlEndTag', s:key1, s:none)
 call s:HL('htmlTagName', s:key1, s:none)
-call s:HL('htmlArg', s:key2, s:none)
+call s:HL('htmlArg', s:key1, s:none)
 
-call s:HL('htmlSpecialChar', s:key2, s:none, s:underline)
+call s:HL('htmlSpecialChar', s:key2, s:none)
 
 call s:HL('htmlBold', s:fg, s:bg, s:bold)
 call s:HL('htmlBoldUnderline', s:fg, s:bg, s:bold . s:underline)
@@ -323,6 +323,14 @@ hi! link markdownH2 markdownH1
 hi! link markdownH3 markdownH1
 hi! link markdownH4 markdownH1
 hi! link markdownH5 markdownH1
+hi! link markdownHeadingDelimiter markdownH1
+hi! link markdownUrl String
+hi! link markdownLinkTextDelimiter markdownLinkText
+hi! link markdownLinkDelimiter markdownLinkText
+call s:HL('markdownCode', s:key2)
+call s:HL('markdownCodeBlock', s:key2)
+hi! link markdownCodeDelimiter markdownCode
+hi! link markdownCodeBlockDelimiter markdownCodeBlock
 
 " Python
 call s:HL('pythonDecorator', s:key2, s:bg)
@@ -332,10 +340,10 @@ call s:HL('pythonBoolean', s:key2, s:bg)
 call s:HL('pythonFunction', s:special, s:bg)
 call s:HL('pythonBuiltin', s:key2, s:bg)
 hi! link pythonCoding Comment
+hi! link pythonEscape EscSequence
 hi! link pythonBytesEscape EscSequence
 
 "Vim
-
 call s:HL('vimBracket', s:key2, s:bg)
 hi! link vimNotation vimBracket
 hi! link vimMapModKey vimBracket
