@@ -161,8 +161,8 @@ call s:HL('qfLineNr', s:muted, s:none)
 "call s:HL('Underlined', s:key2, s:none, s:underline)
 call s:HL('Underlined', s:key2, s:none)
 
-call s:HL('StatusLine',   s:bg2, s:muted)
-call s:HL('StatusLineNC', s:muted, s:bg2, s:underline)
+call s:HL('StatusLine',   s:fg, s:bg2)
+call s:HL('StatusLineNC', s:muted, s:bg2)
 
 " The column separating vertically split windows
 call s:HL('VertSplit', s:fg, s:bg)
@@ -269,13 +269,15 @@ call s:HL('Typedef', s:key1)
 if version >= 700
   " Popup menu: normal item
   """ MF
-  call s:HL('Pmenu', s:bg, s:muted)
+  call s:HL('Pmenu', s:muted, s:bg2)
   " Popup menu: selected item
   call s:HL('PmenuSel', s:bg, s:special, s:bold)
   " Popup menu: scrollbar
   call s:HL('PmenuSbar', s:none, s:bg)
   " Popup menu: scrollbar thumb
-  call s:HL('PmenuThumb', s:none, s:bg)
+  call s:HL('PmenuThumb', s:none, s:special)
+  " Nvim-Cmp-Menu match highlight
+  call s:HL('CmpItemAbbrMatch', s:key2, s:none, s:bold)
 endif
 
 " Spelling
@@ -318,7 +320,7 @@ call s:HL('htmlUnderlineItalic', s:fg, s:bg, s:underline . s:italic)
 call s:HL('htmlItalic', s:fg, s:bg, s:italic)
 
 " Markdown
-call s:HL('markdownH1', s:key1, s:bg, s:bold)
+call s:HL('markdownH1', s:key1, s:none, s:bold)
 hi! link markdownH2 markdownH1
 hi! link markdownH3 markdownH1
 hi! link markdownH4 markdownH1
@@ -333,18 +335,18 @@ hi! link markdownCodeDelimiter markdownCode
 hi! link markdownCodeBlockDelimiter markdownCodeBlock
 
 " Python
-call s:HL('pythonDecorator', s:key2, s:bg)
-call s:HL('pythonInclude', s:special, s:bg)
-call s:HL('pythonImport', s:special, s:bg)
-call s:HL('pythonBoolean', s:key2, s:bg)
-call s:HL('pythonFunction', s:special, s:bg)
-call s:HL('pythonBuiltin', s:key2, s:bg)
+call s:HL('pythonDecorator', s:key2, s:none)
+call s:HL('pythonInclude', s:special, s:none)
+call s:HL('pythonImport', s:special, s:none)
+call s:HL('pythonBoolean', s:key2, s:none)
+call s:HL('pythonFunction', s:special, s:none)
+call s:HL('pythonBuiltin', s:key2, s:none)
 hi! link pythonCoding Comment
 hi! link pythonEscape EscSequence
 hi! link pythonBytesEscape EscSequence
 
 "Vim
-call s:HL('vimBracket', s:key2, s:bg)
+call s:HL('vimBracket', s:key2, s:none)
 hi! link vimNotation vimBracket
 hi! link vimMapModKey vimBracket
 hi! link vimCommentTitle Todo
@@ -361,7 +363,7 @@ hi! link rubyClass Statement
 hi! link rubyDefine Statement
 hi! link rubyBlockParameter Normal
 hi! link rubyInstanceVariable Normal
-call s:HL('rubyFunction', s:key2, s:bg)
+call s:HL('rubyFunction', s:key2, s:none)
 
 "LaTeX
 hi! link texRefZone Keyword
