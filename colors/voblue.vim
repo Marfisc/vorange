@@ -153,7 +153,7 @@ call s:HL('Visual', s:none, s:bg, s:inverse)
 call s:HL('Search',    s:bg, s:key2)
 call s:HL('IncSearch', s:bg, s:key2)
 
-highlight! link QuickFixLine NONE
+hi! link QuickFixLine NONE
 call s:HL('QuickFixLine', s:none, s:bg2)
 call s:HL('qfFileName', s:key1, s:none)
 call s:HL('qfLineNr', s:muted, s:none)
@@ -203,7 +203,7 @@ hi! link lCursor Cursor
 
 """" Syntax
 "Dont highlight to much
-call s:HL('Special', s:key1)
+call s:HL('Special', s:key2)
 
 call s:HL('Comment', s:muted, s:none, s:italic)
 "TODO
@@ -224,13 +224,12 @@ hi! link Label Statement
 " try, catch, throw
 hi! link Exception Statement
 " sizeof, "+", "*", etc.
-""" MF
 hi! link Operator Statement
 " Any other keyword
 hi! link Keyword Statement
 
-call s:HL('Identifier',  s:special)
-call s:HL('Function',  s:special)
+call s:HL('Identifier',  s:fg)
+call s:HL('Function',  s:fg)
 call s:HL('Title', s:special)
 
 " Generic preprocessor
@@ -258,7 +257,7 @@ hi! link Number Constant
 hi! link Float Constant
 
 " Generic type
-call s:HL('Type', s:key2)
+call s:HL('Type', s:special)
 " static, register, volatile, etc
 call s:HL('StorageClass', s:key1)
 " struct, union, enum, etc.
@@ -335,23 +334,25 @@ hi! link markdownCodeDelimiter markdownCode
 hi! link markdownCodeBlockDelimiter markdownCodeBlock
 
 " Python
-call s:HL('pythonDecorator', s:key2, s:none)
-call s:HL('pythonInclude', s:special, s:none)
-call s:HL('pythonImport', s:special, s:none)
-call s:HL('pythonBoolean', s:key2, s:none)
-call s:HL('pythonFunction', s:special, s:none)
-call s:HL('pythonBuiltin', s:key2, s:none)
+hi! link pythonFunction Special
+hi! link pythonBoolean Special
+hi! link pythonInclude PreProc
+hi! link pythonBuiltin Special
+hi! link pythonImport PreProc
+hi! link pythonDecorator PreProc
+hi! link pythonDecoratorName PreProc
 hi! link pythonCoding Comment
 hi! link pythonEscape EscSequence
 hi! link pythonBytesEscape EscSequence
 
 "Vim
-call s:HL('vimBracket', s:key2, s:none)
+call s:HL('vimBracket', s:key2)
 hi! link vimNotation vimBracket
 hi! link vimMapModKey vimBracket
 hi! link vimCommentTitle Todo
 
 "C
+hi! link cType Special
 hi! link cSpecial EscSequence
 
 "D
@@ -361,9 +362,33 @@ hi! link dEscSequence EscSequence
 hi! link rubyModule Statement
 hi! link rubyClass Statement
 hi! link rubyDefine Statement
-hi! link rubyBlockParameter Normal
-hi! link rubyInstanceVariable Normal
-call s:HL('rubyFunction', s:key2, s:none)
+hi! link rubyBlockParameter Identifier
+hi! link rubyInstanceVariable Identifier
+hi! link rubyFunction Special
 
 "LaTeX
 hi! link texRefZone Keyword
+
+" Treesitter
+
+if has("nvim")
+    hi! link @variable Identifier
+
+    hi! link @character.special.vim vimBracket
+    hi! link @operator.vim vimBracket
+    hi! link @module.vim Special
+
+    hi! link @function.builtin.python pythonBuiltin
+    hi! link @constructor.python None
+    hi! link @function.python Special
+    hi! link @function.method.python Special
+    hi! link @function.call.python Function
+    hi! link @function.method.call.python Function
+    hi! link @module.python None
+
+    hi! link @keyword.directive PreProc
+    hi! link @keyword.import PreProc
+    hi! link @constant.macro PreProc
+    hi! link @string.escape EscSequence
+endif
+
