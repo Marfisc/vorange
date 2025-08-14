@@ -121,7 +121,7 @@ endfunction
 call s:HL('Normal', s:fg, s:bg)
 
 if version >= 700
-    call s:HL('CursorLine',   s:none, s:bg2)
+    call s:HL('CursorLine',  s:none, s:bg2)
 
     " Tab pages line filler
     call s:HL('TabLineFill', s:bg, s:bg)
@@ -136,7 +136,7 @@ endif
 
 if version >= 703
     " Highlighted screen columns
-    call s:HL('ColorColumn',  s:none, s:bg)
+    call s:HL('ColorColumn', s:none, s:bg)
 
     " Concealed element: \lambda → λ
     call s:HL('Conceal', s:special, s:none)
@@ -150,7 +150,7 @@ call s:HL('SpecialKey', s:muted)
 
 call s:HL('Visual', s:none, s:bg, s:inverse)
 
-call s:HL('Search',    s:bg, s:key2)
+call s:HL('Search', s:bg, s:key2)
 call s:HL('IncSearch', s:bg, s:key2)
 
 hi! link QuickFixLine NONE
@@ -161,7 +161,7 @@ call s:HL('qfLineNr', s:muted, s:none)
 "call s:HL('Underlined', s:key2, s:none, s:underline)
 call s:HL('Underlined', s:key2, s:none)
 
-call s:HL('StatusLine',   s:fg, s:bg2)
+call s:HL('StatusLine', s:fg, s:bg2)
 call s:HL('StatusLineNC', s:muted, s:bg2)
 
 " The column separating vertically split windows
@@ -171,8 +171,8 @@ call s:HL('VertSplit', s:fg, s:bg)
 call s:HL('WildMenu', s:key1, s:bg2, s:bold)
 
 " Error messages on the command line
-call s:HL('ErrorMsg',   s:fg, s:error)
-call s:HL('MoreMsg',   s:key2)
+call s:HL('ErrorMsg', s:fg, s:error)
+call s:HL('MoreMsg', s:key2)
 
 " Current mode message: -- INSERT --
 call s:HL('ModeMsg',   s:fg, s:bg)
@@ -211,11 +211,11 @@ call s:HL('Todo', s:fg, s:bg, s:bold)
 call s:HL('Error', s:error, s:bg, s:bold . s:inverse)
 
 " String constant: "this is a string"
-call s:HL('String',  s:string)
+call s:HL('String', s:string)
 call s:HL('EscSequence', s:key2, s:none, s:bold)
 
-call s:HL('Statement',  s:key1)
-" if, then, else, endif, swicth, etc.
+call s:HL('Statement', s:key1)
+" if, then, else, endif, switch, etc.
 hi! link Conditional Statement
 " for, do, while, etc.
 hi! link Repeat Statement
@@ -228,9 +228,10 @@ hi! link Operator Statement
 " Any other keyword
 hi! link Keyword Statement
 
-call s:HL('Identifier',  s:fg)
-call s:HL('Function',  s:fg)
-call s:HL('Title', s:special)
+call s:HL('Identifier', s:fg)
+call s:HL('Delimiter', s:fg)
+call s:HL('Function', s:fg)
+call s:HL('Title', s:special, s:none, s:bold)
 
 " Generic preprocessor
 call s:HL('PreProc', s:special)
@@ -257,7 +258,7 @@ hi! link Number Constant
 hi! link Float Constant
 
 " Generic type
-call s:HL('Type', s:special)
+call s:HL('Type', s:key2)
 " static, register, volatile, etc
 call s:HL('StorageClass', s:key1)
 " struct, union, enum, etc.
@@ -285,7 +286,7 @@ if has("spell")
   " Not capitalised word, or compile warnings
   call s:HL('SpellCap',   s:special, s:none, s:bold . s:italic)
   " Not recognized word
-  call s:HL('SpellBad',   s:none, s:none, s:undercurl, s:key1)
+  call s:HL('SpellBad',   s:none, s:none, s:undercurl, s:error)
   " Wrong spelling for selected region
   call s:HL('SpellLocal', s:none, s:none, s:undercurl, s:key2)
   " Rare word
@@ -302,34 +303,34 @@ call s:HL('DiffChange', s:special, s:bg, s:inverse)
 call s:HL('DiffText',   s:key2, s:bg, s:inverse)
 
 " HTML
-call s:HL('htmlTag', s:key1, s:none)
-call s:HL('htmlEndTag', s:key1, s:none)
-call s:HL('htmlTagName', s:key1, s:none)
-call s:HL('htmlArg', s:key1, s:none)
+hi! link htmlTag Keyword
+hi! link htmlEndTag Keyword
+hi! link htmlTagName Keyword
+hi! link htmlArg Keyword
 
-call s:HL('htmlSpecialChar', s:key2, s:none)
+hi! link  htmlSpecialChar Special
 
-call s:HL('htmlBold', s:fg, s:bg, s:bold)
-call s:HL('htmlBoldUnderline', s:fg, s:bg, s:bold . s:underline)
-call s:HL('htmlBoldItalic', s:fg, s:bg, s:bold . s:italic)
-call s:HL('htmlBoldUnderlineItalic', s:fg, s:bg, s:bold . s:underline . s:italic)
+call s:HL('htmlBold', s:none, s:none, s:bold)
+call s:HL('htmlBoldUnderline', s:none, s:none, s:bold . s:underline)
+call s:HL('htmlBoldItalic', s:none, s:none, s:bold . s:italic)
+call s:HL('htmlBoldUnderlineItalic', s:none, s:none, s:bold . s:underline . s:italic)
 
-call s:HL('htmlUnderline', s:fg, s:bg, s:underline)
-call s:HL('htmlUnderlineItalic', s:fg, s:bg, s:underline . s:italic)
-call s:HL('htmlItalic', s:fg, s:bg, s:italic)
+call s:HL('htmlUnderline', s:none, s:none, s:underline)
+call s:HL('htmlUnderlineItalic', s:none, s:none, s:underline . s:italic)
+call s:HL('htmlItalic', s:none, s:none, s:italic)
 
 " Markdown
-call s:HL('markdownH1', s:key1, s:none, s:bold)
+hi! link markdownH1 Title
 hi! link markdownH2 markdownH1
 hi! link markdownH3 markdownH1
 hi! link markdownH4 markdownH1
 hi! link markdownH5 markdownH1
 hi! link markdownHeadingDelimiter markdownH1
-hi! link markdownUrl String
+hi! link markdownUrl Comment
 hi! link markdownLinkTextDelimiter markdownLinkText
 hi! link markdownLinkDelimiter markdownLinkText
-call s:HL('markdownCode', s:key2)
-call s:HL('markdownCodeBlock', s:key2)
+hi! link markdownCode String
+hi! link markdownCodeBlock String
 hi! link markdownCodeDelimiter markdownCode
 hi! link markdownCodeBlockDelimiter markdownCodeBlock
 
@@ -346,7 +347,7 @@ hi! link pythonEscape EscSequence
 hi! link pythonBytesEscape EscSequence
 
 "Vim
-call s:HL('vimBracket', s:key2)
+hi! link vimBracket Special
 hi! link vimNotation vimBracket
 hi! link vimMapModKey vimBracket
 hi! link vimCommentTitle Todo
@@ -390,5 +391,18 @@ if has("nvim")
     hi! link @keyword.import PreProc
     hi! link @constant.macro PreProc
     hi! link @string.escape EscSequence
+
+    hi! link @markup.link.url Comment
+    hi! link @markup.raw String
+    "call s:HL('@markup.raw.block', s:none, s:bg2)
+    hi! link @label.markdown String
+
+    hi! link @tag Keyword
+    hi! link @tag.attribute Special
+    hi! link @tag.delimiter.html Keyword
+    "hi! link @string.css None
+
+    hi! link @property.json Keyword
+    hi! link @property.yaml Keyword
 endif
 
