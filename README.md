@@ -1,23 +1,31 @@
-# Vorange
+# Vorange and Voblue
 
-A minimalistic dark [Vim](https://github.com/roosta/vim-srcery) color scheme
-for GUI and Terminal. It is based on
-[Srcery](https://github.com/roosta/vim-srcery).
+A family of minimalistic dark [Vim](https://www.vim.org) and [Neovim](https://neovim.io) color schemes for GUI (true color) and terminal.
+They support [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)-based highlight groups.
+The color family is based on [Srcery](https://github.com/roosta/vim-srcery).
 
 [My personal homepage](http://marcelfischer.eu/)
 
 ## Screens
 
-![Screen2](screen2.png)
+### Vorange
 
-![Screen](screen.png)
+![Vorange for C++](screen_vorange2.png)
+
+![Vorange for Python in terminal and GVim](screen_vorange1.png)
+
+### Voblue
+
+![Voblue for Python with treesitter](screen_voblue1.png)
 
 ## Configuration
 
-Put this in your `.vimrc` to load the Vorange color scheme:
+Put this in your `.vimrc` to load the Vorange / Voblue color scheme:
 
 ```vim
 colorscheme vorange
+"or
+colorscheme voblue
 ```
 
 To make the visual mode cursor work as intended put this in your `.vimrc`.
@@ -44,7 +52,9 @@ let g:vorange_underline=0
 let g:vorange_undercurl=0
 ```
 
-Currently color inversion cannot be  disabled. Because of the lack of fallback this would make the cursor and visual mode invisible.
+(replace `vorange_` with `voblue_` for Voblue configuration)
+
+Currently, color inversion cannot be disabled. Because of the lack of fallback this would make the cursor and visual mode invisible.
 
 ## Airline Theme
 
@@ -53,3 +63,4 @@ A fitting [Airline](https://github.com/vim-airline/vim-airline) theme is include
 ```vim
 let g:airline_theme="vorange"
 ```
+
